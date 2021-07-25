@@ -1,0 +1,80 @@
+
+.header {
+  font-family: 'Saira Stencil One', cursive;
+  font-size: 20px;
+  background-color: #696969;
+  color: #E8E8E8;
+  position: fixed;
+  padding-left: 10px;
+  width: 100%;
+  top:0;
+}
+
+.footer {
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  background-color: #696969;
+  color: #fff;
+  font-family: 'Saira';
+}
+
+.footerTitle {
+  color: #CBCACA;
+  margin-right: 10px;
+  font-size: 18px;
+  font-family: 'Saira';
+  padding: 5px 5px 5px 0;
+}
+
+.body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.left-section {
+  border-right: 1.5px #C4C4C4 solid;
+  height: max-content;
+  width: 55vw;
+  padding: 45px 15px;
+  box-sizing: border-box;
+}
+
+.right-section {
+  width: 45vw;
+  position: fixed;
+  padding-top: 45px;
+  right: 0;
+}
+
+.input {
+  outline: none;
+  border: none;
+  background-color: #E8E8E8;
+  border-radius: 5px;
+  color: #717171;
+  font-size: 16px;
+  padding: 12px 0;
+  padding-left: 20px;
+}
+.input::placeholder {
+  color: #717171;
+}
+
+.button {
+  background-color: #696969;
+  text-align: center;
+  padding: 3px 0;
+  border-radius: 5px;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+
+

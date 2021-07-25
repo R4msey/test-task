@@ -1,0 +1,27 @@
+.container {
+  margin-left: 15px;
+  padding-right: 30px;
+  border-bottom: 1px solid #C4C4C4;
+}
+
+.description {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: #E8E8E8;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #717171;
+  font-family: 'Saira';
+  box-sizing: border-box;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  padding-bottom: 15px;
+}
