@@ -39,6 +39,7 @@
 
 .left-section {
   border-right: 1.5px #C4C4C4 solid;
+  min-height: 100vh;
   height: max-content;
   width: 55vw;
   padding: 45px 15px;

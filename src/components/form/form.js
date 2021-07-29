@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { useState } from 'react'
 import localforage from 'localforage'
 
 import './form.css'
@@ -8,17 +8,13 @@ import { Input } from '../ui/input/input'
 
 import { Handler, Validation } from '../common/validation'
 
-interface IForm {
-  setStorage: any
-}
-
-export const Form: FC<IForm> = ({
+export const Form = ({
   setStorage
 }) => {
 
   const storageKey = 'items'
 
-  const [err, setErr] = useState()
+  const [, setErr] = useState()
 
   const [name, setName] = useState('')
   const [type, setType] = useState('')
@@ -28,22 +24,19 @@ export const Form: FC<IForm> = ({
   const [id, setId] = useState('')
 
   const [description, setDescription] = useState('')
-  const [error, setError] = useState('Поле не може бути пустим')
+  const [error, setError] = useState('The field cannot be empty')
   const [dirtyDescrition, setDirtyDescrition] = useState(false)
   const [dirty, setDirty] = useState(false)
 
   const clickSave = async () => {
     setDirty(true)
     let count = 0
-    console.log('+')
     for (const i of stats) {
-      console.log('-', stats)
       if (!Validation(i.name, i.type, setErr)) {
-        console.log('++')
         count++
         if (count === 7) {
           stats.map(i => i.change(''))
-          let response: any = await localforage.getItem(storageKey)
+          let response = await localforage.getItem(storageKey)
           if (await localforage.getItem(storageKey) !== null) {
             await localforage.setItem(storageKey, response.concat(object))
             setStorage(response.concat(object))
@@ -79,7 +72,7 @@ export const Form: FC<IForm> = ({
   return (
     <div className='container'>
       <div className='grid'>
-        {stats.slice(0, 6).map((i: any, index: number) =>
+        {stats.slice(0, 6).map((i, index) =>
           <Input
             key={index}
             placeHolder={i.placeHolder}
@@ -94,7 +87,13 @@ export const Form: FC<IForm> = ({
         className='description'
         rows={4}
         placeholder='Description'
-        onChange={e => Handler(e, setDescription, 'description', setError, setDirtyDescrition)}
+        onChange={e => Handler(
+          e,
+          setDescription,
+          'description',
+          setError,
+          setDirtyDescrition
+        )}
         value={description}
         onBlur={() => setDirtyDescrition(true)}
       />

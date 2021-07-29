@@ -1,22 +1,13 @@
-import { FC, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Handler } from '../../common/validation'
 
-interface IInput {
-  placeHolder: string
-  data?: any
-  type: string
-  setState: any
-  state: any
-  dirty: any
-}
-
-export const Input: FC<IInput> = ({
+export const Input = ({
   placeHolder,
   state,
   setState,
   type,
-  dirty
+  dirty,
 }) => {
 
   useEffect(() => {
@@ -24,11 +15,11 @@ export const Input: FC<IInput> = ({
   }, [dirty])
 
   const [Dirty, setDirty] = useState(false)
-  const [Error, setError] = useState('Поле не може бути пустим')
+  const [error, setError] = useState('The field cannot be empty')
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-      {(Dirty && Error) && <span style={{ color: 'red' }}>{Error}</span>}
+      {(Dirty && error) && <span style={{ color: 'red' }}>{error}</span>}
       <input
         name='name'
         onChange={e => Handler(e,setState,type, setError, setDirty)}

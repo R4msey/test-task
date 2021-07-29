@@ -19,15 +19,33 @@ const App = () => {
   }, [])
 
   const statistics = [
-    { name: 'Total Bikes: ', addInfo: '', option: Array.isArray(storage) ? storage.length : 0 },
-    { name: 'Available Bikes: ', addInfo: '', option: Array.isArray(storage) ? storage.filter(i => i.status === 'Available').length : null },
-    { name: 'Booked Bikes: ', addInfo: '', option: Array.isArray(storage) ? storage.filter(i => i.status === 'Busy').length : 0 },
-    { name: 'Average bike cost: ', addInfo: 'UAH/hr', option: Array.isArray(storage) ? storage.map(i => Number(i.price)).reduce((count, value) => { return count + value }, 0) / storage.map(i => i.price).length : '0.00' }
+    { 
+      name: 'Total Bikes: ', 
+      addInfo: '', 
+      option: Array.isArray(storage) ? storage.length : 0 
+    },
+    { 
+      name: 'Available Bikes: ', 
+      addInfo: '', 
+      option: Array.isArray(storage) ? storage.filter(i => i.status === 'Available').length : null 
+    },
+    { 
+      name: 'Booked Bikes: ', 
+      addInfo: '', 
+      option: Array.isArray(storage) ? storage.filter(i => i.status === 'Busy').length : 0 
+    },
+    { 
+      name: 'Average bike cost: ', 
+      addInfo: 'UAH/hr', 
+      option: Array.isArray(storage) ? storage.map(i => Number(i.price)).reduce((count, value) => { return count + value }, 0) / storage.map(i => i.price).length : '0.00' 
+    }
   ]
-  // console.log(statistics[3].option)
+
   return (
     <div className='body'>
-      <header className='header'>ADMIN.BIKE-BOOKING.COM</header>
+      <header className='header'>
+        ADMIN.BIKE-BOOKING.COM
+      </header>
       <section className='left-section'>
         {(Array.isArray(storage) && storage.length !== 0)
           ? storage.map((i, index) =>
@@ -36,21 +54,26 @@ const App = () => {
               setStorage={setStorage}
               data={i}
             />)
-          : <div>Нічого немає</div>
+          : <div>There's nothing</div>
         }
       </section>
       <section className='right-section'>
         <Form setStorage={setStorage} />
         <div style={{ marginLeft: 15 }}>
-          <span className='textBolt' style={{ fontSize: 20 }}>Statistics</span>
+          <span 
+            className='textBolt' 
+            style={{ fontSize: 20 }}
+          >
+            Statistics
+          </span>
           {statistics.map((i, index) =>
-            <div 
-              key={index} 
+            <div
+              key={index}
               style={{ fontSize: 16 }}
             >
               {i.name}
-              <span 
-                className='textBolt' 
+              <span
+                className='textBolt'
                 style={{ fontSize: 16 }}
               >
                 {i.option}
